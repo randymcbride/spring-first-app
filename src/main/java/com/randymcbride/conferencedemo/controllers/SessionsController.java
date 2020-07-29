@@ -11,8 +11,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/sessions")
 public class SessionsController {
-    @Autowired
     private SessionRepository sessionRepository;
+
+    @Autowired
+    public SessionsController(SessionRepository sessionRepository){
+        this.sessionRepository = sessionRepository;
+    }
 
     @GetMapping
     public List<Session> list(){
