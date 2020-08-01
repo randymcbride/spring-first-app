@@ -11,8 +11,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/speakers")
 public class SpeakersController {
-    @Autowired
     private SpeakerRepository speakerRepository;
+
+    @Autowired
+    public SpeakersController(SpeakerRepository speakerRepository) {
+        this.speakerRepository = speakerRepository;
+    }
 
     @GetMapping
     private List<Speaker> list(){
