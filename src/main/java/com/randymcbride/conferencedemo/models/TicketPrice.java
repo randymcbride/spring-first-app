@@ -16,7 +16,7 @@ public class TicketPrice {
     private String pricingCategoryCode;
 
     @Column(name="base_price")
-    private String basePrice;
+    private Double basePrice;
 
     public Long getTicketPriceId() {
         return ticketPriceId;
@@ -42,11 +42,11 @@ public class TicketPrice {
         this.pricingCategoryCode = pricingCategoryCode;
     }
 
-    public String getBasePrice() {
+    public Double getBasePrice() {
         return basePrice;
     }
 
-    public void setBasePrice(String basePrice) {
+    public void setBasePrice(Double basePrice) {
         this.basePrice = basePrice;
     }
 }

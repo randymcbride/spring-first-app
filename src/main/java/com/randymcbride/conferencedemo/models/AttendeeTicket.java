@@ -1,5 +1,7 @@
 package com.randymcbride.conferencedemo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Currency;
 
@@ -13,6 +15,7 @@ public class AttendeeTicket {
 
     @ManyToOne
     @JoinColumn(name="attendee_id")
+    @JsonIgnore
     private Attendee attendee;
 
     @ManyToOne
@@ -24,7 +27,7 @@ public class AttendeeTicket {
     private DiscountCode discountCode;
 
     @Column(name="net_price")
-    private Currency netPrice;
+    private Double netPrice;
 
     public Long getAttendeeTicketId() {
         return attendeeTicketId;
@@ -58,11 +61,11 @@ public class AttendeeTicket {
         this.discountCode = discountCode;
     }
 
-    public Currency getNetPrice() {
+    public Double getNetPrice() {
         return netPrice;
     }
 
-    public void setNetPrice(Currency netPrice) {
+    public void setNetPrice(Double netPrice) {
         this.netPrice = netPrice;
     }
 }
